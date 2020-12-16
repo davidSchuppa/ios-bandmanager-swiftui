@@ -16,6 +16,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+BandManager.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+BandManager.xcodeproj/project.xcworkspace/xcuserdata/
+BandManager.xcodeproj/xcuserdata/
 
 ## Other
 *.moved-aside
