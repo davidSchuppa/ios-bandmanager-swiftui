@@ -13,10 +13,10 @@ struct ContentView: View {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            ChecklistView()
+            PacklistView()
                 .tabItem {
                     Image(systemName: "checkmark.circle")
-                    Text("Checklist")
+                    Text("Packlist")
                 }
             ExpensesView()
                 .tabItem {

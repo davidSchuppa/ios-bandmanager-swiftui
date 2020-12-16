@@ -2,24 +2,33 @@
 //  AddItemSheetView.swift
 //  BandManager
 //
-//  Created by David Schuppa on 2020. 12. 09..
-//
 
 import SwiftUI
 
 struct AddItemSheetView: View {
     @Binding var showSheet: Bool
-    @ObservedObject var checklistItemManager: ChecklistItemManager
+    @ObservedObject var packlistItemManager: PacklistItemManager
     @State private var itemName: String = ""
     @State private var selectedCategory = 0
-    @State private var categories = ["guitar", "bass", "vocal"]
+    @State private var categories = ["other", "guitar", "bass", "vocal"]
+    @State private var showItemNameError = false
     
     var body: some View {
         
         NavigationView {
             Form {
-                Text("Item name:")
-                TextField("", text: $itemName).textFieldStyle(RoundedBorderTextFieldStyle())
+                VStack {
+                    if(self.showItemNameError) {
+                        Text("Please fill out the item name!")
+                            .font(.caption)
+                            .foregroundColor(Color.red)
+                            .animation(.easeIn)
+                    }
+                    FloatingTextField(title: "Item name", text: $itemName)
+                        .onChange(of: itemName, perform: { _ in
+                        self.showItemNameError = false
+                    })
+                }
                 
                 Spacer()
                 
@@ -30,7 +39,9 @@ struct AddItemSheetView: View {
                 }
                 HStack {
                     Spacer()
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) { 
+                    Button(action: {
+                        self.addNewItem()
+                    }) {
                         Text("Add")
                     }
                 }
@@ -50,10 +61,20 @@ struct AddItemSheetView: View {
         self.itemName = ""
         self.showSheet = false
     }
+    
+    func addNewItem() {
+        if(self.itemName.isEmpty) {
+            self.showItemNameError = true
+        } else {
+            let newItem = PacklistItem(name: self.itemName, category: categories[selectedCategory])
+            packlistItemManager.addItem(newItem: newItem)
+            self.showSheet = false
+        }
+    }
 }
 
 struct AddItemSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemSheetView(showSheet: .constant(true), checklistItemManager: ChecklistItemManager())
+        AddItemSheetView(showSheet: .constant(true), packlistItemManager: PacklistItemManager())
     }
 }
