@@ -6,6 +6,7 @@ target 'BandManager' do
   use_frameworks!
 
   # Pods for BandManager
+  pod 'Firebase/Database'
 
   target 'BandManagerTests' do
     inherit! :search_paths

@@ -7,7 +7,7 @@ import SwiftUI
 
 struct AddItemSheetView: View {
     @Binding var showSheet: Bool
-    @ObservedObject var packlistItemManager: PacklistItemManager
+    @ObservedObject var packlistViewController: PacklistViewController
     @State private var itemName: String = ""
     @State private var selectedCategory = 0
     @State private var categories = ["other", "guitar", "bass", "vocal"]
@@ -67,7 +67,7 @@ struct AddItemSheetView: View {
             self.showItemNameError = true
         } else {
             let newItem = PacklistItem(name: self.itemName, category: categories[selectedCategory])
-            packlistItemManager.addItem(newItem: newItem)
+            packlistViewController.addItem(newItem: newItem)
             self.showSheet = false
         }
     }
@@ -75,6 +75,6 @@ struct AddItemSheetView: View {
 
 struct AddItemSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddItemSheetView(showSheet: .constant(true), packlistItemManager: PacklistItemManager())
+        AddItemSheetView(showSheet: .constant(true), packlistViewController: PacklistViewController())
     }
 }

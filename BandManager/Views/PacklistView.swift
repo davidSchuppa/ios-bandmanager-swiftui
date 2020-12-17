@@ -6,25 +6,25 @@
 import SwiftUI
 
 struct PacklistView: View {
-    @ObservedObject var packlistItemManager = PacklistItemManager()
+    @ObservedObject var packlistViewController = PacklistViewController()
     @State var showAddItemSheet = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(self.packlistItemManager.items.indices, id:\.self) { index in
+                ForEach(self.packlistViewController.items.indices, id:\.self) { index in
                     VStack(alignment: .leading) {
                         HStack {
-                            Text(self.packlistItemManager.items[index].name)
+                            Text(self.packlistViewController.items[index].name)
                             Spacer()
                             Button(action: {
-                                self.packlistItemManager.items[index].done.toggle()
-                                self.packlistItemManager.updateOrder()
+                                self.packlistViewController.items[index].done.toggle()
+                                self.packlistViewController.updateDoneStatus(index: index)
                             }) {
-                                Image(systemName: self.packlistItemManager.items[index].done ? "checkmark" : "square")
+                                Image(systemName: self.packlistViewController.items[index].done ? "checkmark" : "square")
                             }.animation(.default)
                         }
-                        Text(self.packlistItemManager.items[index].category)
+                        Text(self.packlistViewController.items[index].category)
                             .font(.caption)
                             .foregroundColor(Color(.gray))
                     }
@@ -42,7 +42,7 @@ struct PacklistView: View {
                                 }.sheet(isPresented: $showAddItemSheet, onDismiss: {
                                     self.showAddItemSheet = false
                                 }) {
-                                    AddItemSheetView(showSheet: $showAddItemSheet, packlistItemManager: self.packlistItemManager)
+                                    AddItemSheetView(showSheet: $showAddItemSheet, packlistViewController: self.packlistViewController)
                                 })
         }
     }
@@ -53,11 +53,11 @@ struct PacklistView: View {
     }
     
     private func onDelete(offsets: IndexSet) {
-        self.packlistItemManager.items.remove(atOffsets: offsets)
+        self.packlistViewController.items.remove(atOffsets: offsets)
         }
     
     private func onMove(source: IndexSet, destination: Int) {
-        self.packlistItemManager.items.move(fromOffsets: source, toOffset: destination)
+        self.packlistViewController.items.move(fromOffsets: source, toOffset: destination)
     }
 }
 
