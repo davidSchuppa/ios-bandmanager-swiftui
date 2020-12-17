@@ -28,9 +28,9 @@ struct PacklistView: View {
                             .font(.caption)
                             .foregroundColor(Color(.gray))
                     }
-                }.onMove(perform: { indices, newOffset in
-                    self.packlistItemManager.items.move(fromOffsets: indices, toOffset: newOffset)
-                })
+                }
+                .onMove(perform: onMove)
+                .onDelete(perform: onDelete)
             }
             .animation(.linear)
             .navigationTitle(Text("Packlist"))
@@ -48,8 +48,16 @@ struct PacklistView: View {
     }
     
     
-    func addItem() -> Void {
+    private func addItem() -> Void {
         self.showAddItemSheet = true
+    }
+    
+    private func onDelete(offsets: IndexSet) {
+        self.packlistItemManager.items.remove(atOffsets: offsets)
+        }
+    
+    private func onMove(source: IndexSet, destination: Int) {
+        self.packlistItemManager.items.move(fromOffsets: source, toOffset: destination)
     }
 }
 
