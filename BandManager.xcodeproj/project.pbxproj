@@ -25,6 +25,8 @@
 		56CC6B3B257E6E1A0000E125 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC6B3A257E6E1A0000E125 /* ExpensesView.swift */; };
 		56CC6B41257E6F250000E125 /* PacklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC6B40257E6F250000E125 /* PacklistItem.swift */; };
 		56EEEDD9258CC5C6009BD58F /* GoogleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EEEDD8258CC5C6009BD58F /* GoogleDelegate.swift */; };
+		56EEEDDE258CD0A0009BD58F /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EEEDDD258CD0A0009BD58F /* GoogleSignInButton.swift */; };
+		56EEEE0C258CFA52009BD58F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EEEE0B258CFA52009BD58F /* LoginView.swift */; };
 		56F47BB3258A262900D86CCD /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F47BB2258A262900D86CCD /* FloatingTextField.swift */; };
 		56F846D4258B9439009B53F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56F846D3258B9439009B53F2 /* GoogleService-Info.plist */; };
 		D4CB7F256CCBAE736ED144AC /* Pods_BandManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AABF3C805FD1FD1F1D5E31 /* Pods_BandManager.framework */; };
@@ -74,6 +76,8 @@
 		56CC6B3A257E6E1A0000E125 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		56CC6B40257E6F250000E125 /* PacklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacklistItem.swift; sourceTree = "<group>"; };
 		56EEEDD8258CC5C6009BD58F /* GoogleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDelegate.swift; sourceTree = "<group>"; };
+		56EEEDDD258CD0A0009BD58F /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
+		56EEEE0B258CFA52009BD58F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		56F47BB2258A262900D86CCD /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
 		56F846D3258B9439009B53F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B8BA8496C51F0F00D80F4AD /* Pods_BandManager_BandManagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BandManager_BandManagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,7 @@
 				56CC6B35257E6DA80000E125 /* HomeView.swift */,
 				56CC6B30257E6CE10000E125 /* PacklistView.swift */,
 				56B6C3EE257EAD7A0078F205 /* MembersView.swift */,
+				56EEEE0B258CFA52009BD58F /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			children = (
 				56B6C3F925811F900078F205 /* AddItemSheetView.swift */,
 				56F47BB2258A262900D86CCD /* FloatingTextField.swift */,
+				56EEEDDD258CD0A0009BD58F /* GoogleSignInButton.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -521,8 +527,10 @@
 				56CC6B41257E6F250000E125 /* PacklistItem.swift in Sources */,
 				56F47BB3258A262900D86CCD /* FloatingTextField.swift in Sources */,
 				56CC6AF8257E6BF50000E125 /* SceneDelegate.swift in Sources */,
+				56EEEE0C258CFA52009BD58F /* LoginView.swift in Sources */,
 				56B6C3EF257EAD7A0078F205 /* MembersView.swift in Sources */,
 				56CC6AFA257E6BF50000E125 /* ContentView.swift in Sources */,
+				56EEEDDE258CD0A0009BD58F /* GoogleSignInButton.swift in Sources */,
 				56CC6B36257E6DA80000E125 /* HomeView.swift in Sources */,
 				56CC6B31257E6CE10000E125 /* PacklistView.swift in Sources */,
 			);

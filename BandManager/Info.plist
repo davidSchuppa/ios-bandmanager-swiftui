@@ -23,11 +23,9 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.bandmanager.431128984706-n3bogr4lt4t6138k9trs6m8lpc9ats40.apps.googleusercontent.com
-</string>
+				<string>com.googleusercontent.apps.431128984706-n3bogr4lt4t6138k9trs6m8lpc9ats40</string>
 			</array>
 		</dict>
-		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

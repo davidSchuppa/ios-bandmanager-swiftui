@@ -16,9 +16,10 @@ class GoogleDelegate: NSObject, GIDSignInDelegate, ObservableObject {
             } else {
                 print("\(error.localizedDescription)")
             }
+            signedIn = false
+            
+            return
         }
-        
-        print("Successful sign-in")
         signedIn = true
     }
 }
