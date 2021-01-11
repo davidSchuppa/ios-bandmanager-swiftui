@@ -53,8 +53,11 @@ struct PacklistView: View {
     }
     
     private func onDelete(offsets: IndexSet) {
-        self.packlistViewController.items.remove(atOffsets: offsets)
+        guard let index = offsets.first else {
+            return
         }
+        self.packlistViewController.removeItem(index: index)
+    }
     
     private func onMove(source: IndexSet, destination: Int) {
         self.packlistViewController.items.move(fromOffsets: source, toOffset: destination)

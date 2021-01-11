@@ -52,4 +52,10 @@ class PacklistViewController: ObservableObject {
         items.append(newItem)
         self.updateOrder()
     }
+    
+    func removeItem(index: Int) {
+        let key = items[index].name.lowercased()
+        self.dbRef.child(key).removeValue()
+        items.remove(at: index)
+    }
 }
