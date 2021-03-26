@@ -8,6 +8,8 @@ import SwiftUI
 struct PacklistView: View {
     @ObservedObject var packlistViewController = PacklistViewController()
     @State var showAddItemSheet = false
+    @State var selectedSortTypeIndex = 0
+    @State var sortTypes = ["status", "category"]
     
     var body: some View {
         NavigationView {
@@ -34,16 +36,33 @@ struct PacklistView: View {
             }
             .animation(.linear)
             .navigationTitle(Text("Packlist"))
-            .navigationBarItems(leading: EditButton(),
-                                trailing: Button(action: {
-                                    self.addItem()
-                                }) {
-                                    Image(systemName: "plus")
-                                }.sheet(isPresented: $showAddItemSheet, onDismiss: {
-                                    self.showAddItemSheet = false
-                                }) {
-                                    AddItemSheetView(showSheet: $showAddItemSheet, packlistViewController: self.packlistViewController)
-                                })
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Text("Sort by:")
+                    Picker("", selection: $selectedSortTypeIndex)  {
+                        ForEach(0 ..< sortTypes.count) {
+                            Text(self.sortTypes[$0])
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .onChange(of: selectedSortTypeIndex) { _ in
+                        self.packlistViewController.updateOrder(updateBasedOn: sortTypes[selectedSortTypeIndex])
+                    }
+                    
+                    Button(action: {
+                        self.addItem()
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    
+                }
+            }
+        }
+        .sheet(isPresented: $showAddItemSheet, onDismiss: { self.showAddItemSheet = false }) {
+            AddItemSheetView(showSheet: $showAddItemSheet, packlistViewController: self.packlistViewController)
         }
     }
     

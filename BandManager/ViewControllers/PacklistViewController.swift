@@ -10,6 +10,7 @@ import FirebaseDatabase
 class PacklistViewController: ObservableObject {
     let dbRef = Database.database().reference().child("packlist")
     @Published var items: [PacklistItem] = []
+    @Published var categories: [String] = ["other", "guitar", "bass", "vocal"]
     
     init() {
         dbRef.observe(.value) { (snapshot) in
@@ -27,10 +28,17 @@ class PacklistViewController: ObservableObject {
         }
     }
     
-    func updateOrder() {
-        items.sort(by: { (item1, item2) -> Bool in
-            return !item1.done
-        })
+    func updateOrder(updateBasedOn: String = "status") {
+        switch updateBasedOn {
+        case "category":
+            items.sort { (item1, item2) -> Bool in
+                item1.category < item2.category
+            }
+        default:
+            items.sort(by: { (item1, item2) -> Bool in
+                return !item1.done
+            })
+        }
     }
     
     func updateDoneStatus(index: Int) {
