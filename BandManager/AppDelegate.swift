@@ -14,14 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance()?.clientID = "431128984706-n3bogr4lt4t6138k9trs6m8lpc9ats40.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance()?.delegate = googleDelegate
+        let googleSingIn = GIDSignIn.sharedInstance()
+        googleSingIn?.clientID = "431128984706-n3bogr4lt4t6138k9trs6m8lpc9ats40.apps.googleusercontent.com"
+        googleSingIn?.delegate = googleDelegate
+        
+        googleSingIn?.restorePreviousSignIn()
+        if (googleSingIn?.hasPreviousSignIn() == true) {
+            googleDelegate.signedIn = true
+        }
         
         return true
     }
 
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -37,6 +42,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
-
 }
 
