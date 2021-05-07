@@ -12,6 +12,7 @@
 		56B6C3D8257E8E2C0078F205 /* PacklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B6C3D7257E8E2C0078F205 /* PacklistViewController.swift */; };
 		56B6C3EF257EAD7A0078F205 /* MembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B6C3EE257EAD7A0078F205 /* MembersView.swift */; };
 		56B6C3FA25811F900078F205 /* AddItemSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B6C3F925811F900078F205 /* AddItemSheetView.swift */; };
+		56C526DA260E236B002BBFD9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C526D9260E236B002BBFD9 /* SettingsView.swift */; };
 		56CC6AF6257E6BF50000E125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC6AF5257E6BF50000E125 /* AppDelegate.swift */; };
 		56CC6AF8257E6BF50000E125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC6AF7257E6BF50000E125 /* SceneDelegate.swift */; };
 		56CC6AFA257E6BF50000E125 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CC6AF9257E6BF50000E125 /* ContentView.swift */; };
@@ -59,6 +60,7 @@
 		56B6C3D7257E8E2C0078F205 /* PacklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacklistViewController.swift; sourceTree = "<group>"; };
 		56B6C3EE257EAD7A0078F205 /* MembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersView.swift; sourceTree = "<group>"; };
 		56B6C3F925811F900078F205 /* AddItemSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemSheetView.swift; sourceTree = "<group>"; };
+		56C526D9260E236B002BBFD9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		56CC6AF2257E6BF50000E125 /* BandManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56CC6AF5257E6BF50000E125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56CC6AF7257E6BF50000E125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				56CC6B30257E6CE10000E125 /* PacklistView.swift */,
 				56B6C3EE257EAD7A0078F205 /* MembersView.swift */,
 				56EEEE0B258CFA52009BD58F /* LoginView.swift */,
+				56C526D9260E236B002BBFD9 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				56B6C3D8257E8E2C0078F205 /* PacklistViewController.swift in Sources */,
 				566F168D25B1D44000CBB78D /* UserData.swift in Sources */,
 				56EEEDD9258CC5C6009BD58F /* GoogleDelegate.swift in Sources */,
+				56C526DA260E236B002BBFD9 /* SettingsView.swift in Sources */,
 				56DEEB0825CEEC5500381056 /* CustomPickerView.swift in Sources */,
 				56CC6B3B257E6E1A0000E125 /* ExpensesView.swift in Sources */,
 				56CC6B41257E6F250000E125 /* PacklistItem.swift in Sources */,

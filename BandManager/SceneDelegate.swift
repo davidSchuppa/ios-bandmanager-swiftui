@@ -2,8 +2,6 @@
 //  SceneDelegate.swift
 //  BandManager
 //
-//  Created by David Schuppa on 2020. 12. 07..
-//
 
 import UIKit
 import SwiftUI

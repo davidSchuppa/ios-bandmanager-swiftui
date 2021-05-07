@@ -16,11 +16,16 @@ class GoogleDelegate: NSObject, GIDSignInDelegate, ObservableObject {
             } else {
                 print("\(error.localizedDescription)")
             }
-            signedIn = false
+            self.signedIn = false
             
             return
         }
-        signedIn = true
+        self.signedIn = true
+    }
+    
+    func logOut() {
+        self.signedIn = false
+        GIDSignIn.sharedInstance()?.signOut()
     }
 }
 
