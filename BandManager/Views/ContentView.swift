@@ -10,47 +10,40 @@ struct ContentView: View {
     @EnvironmentObject var googleDelegate: GoogleDelegate
     
     var body: some View {
-        NavigationView {
-            Group {
-                if googleDelegate.signedIn {
-                    TabView {
-                        HomeView()
-                            .tabItem {
-                                Image(systemName: "house")
-                                Text("Home")
-                            }
-                        PacklistView()
-                            .tabItem {
-                                Image(systemName: "checkmark.circle")
-                                Text("Packlist")
-                            }
-                        ExpensesView()
-                            .tabItem {
-                                Image(systemName: "dollarsign.circle")
-                                Text("Expenses")
-                            }
-                        MembersView()
-                            .tabItem {
-                                Image(systemName: "person.3")
-                                Text("Members")
-                            }
-                    }
-                    .navigationBarItems(
-                        trailing: Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                            NavigationLink(destination: SettingsView().environmentObject(googleDelegate)) {
-                                Image(systemName: "gearshape")
-                            }
+        Group {
+            if googleDelegate.signedIn {
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Image(systemName: "house")
+                            Text("Home")
                         }
-                    )
-                } else {
-                    LoginView()
-                        .navigationBarHidden(true)
+                    PacklistView()
+                        .tabItem {
+                            Image(systemName: "checkmark.circle")
+                            Text("Packlist")
+                        }
+                    ExpensesView()
+                        .tabItem {
+                            Image(systemName: "dollarsign.circle")
+                            Text("Expenses")
+                        }
+                    MembersView()
+                        .tabItem {
+                            Image(systemName: "person.3")
+                            Text("Members")
+                        }
+                    SettingsView().environmentObject(googleDelegate)
+                        .tabItem {
+                            Image(systemName: "gearshape")
+                            Text("Settings")
+                        }
                 }
+            } else {
+                LoginView()
             }
-            .animation(.linear)
-        }.onAppear(perform: {
-            print("fuck")
-        })
+        }
+        .animation(.linear)
     }
 }
 
